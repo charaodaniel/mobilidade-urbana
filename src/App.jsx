@@ -10,7 +10,7 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Verificar se há usuário logado no localStorage
+    // Verificar se há usuário logado no localStorage no sistema
     const savedUser = localStorage.getItem('currentUser');
     if (savedUser) {
       try {
