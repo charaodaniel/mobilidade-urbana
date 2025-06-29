@@ -185,6 +185,23 @@ export const estimateTravelTime = (distance, averageSpeed = 30) => {
 };
 
 // Função para calcular preço da corrida
+export const calculateFare = (distance, pricePerKm = 5.00, isInterior = false, minimumFare = 5.00) => {
+  if (isInterior) {
+    return null; // Preço negociado para interior
+  }
+  
+  const calculatedPrice = distance * pricePerKm;
+  return Math.max(calculatedPrice, minimumFare); // Garantir tarifa mínima
+};
+
+// Função para calcular duração da viagem
+export const calculateDuration = (distance, averageSpeed = 30) => {
+  // averageSpeed em km/h (padrão: 30 km/h para cidade)
+  const timeInHours = distance / averageSpeed;
+  return Math.round(timeInHours * 60); // retorna em minutos
+};
+
+// Função para calcular preço da corrida (alias para compatibilidade)
 export const calculateRidePrice = (distance, pricePerKm, isInterior = false, minimumFare = 5.00) => {
   if (isInterior) {
     return null; // Preço negociado para interior
